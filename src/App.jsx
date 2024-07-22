@@ -4,6 +4,8 @@ import ProductList from './components/ProductList.jsx';
 import VideoSection from './components/Video.jsx';
 import { CartProvider } from './CartContext.js';
 import products from './products.js';
+import Cart from './components/Cart.jsx';
+import OrderSummary from './components/OrderSummary.jsx';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <div className="container mx-auto p-4">
           <ProductList products={products} />
         </div>
+        <Cart/>
+        <OrderSummary/>
       </CartProvider>
     </div>
 

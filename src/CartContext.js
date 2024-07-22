@@ -1,5 +1,5 @@
 import React, { createContext, useState, useContext } from 'react';
-import products from './products'; // Import your products data
+import products from './products';
 
 // Create Context
 const CartContext = createContext();
@@ -7,6 +7,8 @@ const CartContext = createContext();
 // Create Provider Component
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState({});
+  const [isCartOpen, setCartOpen] = useState(false);
+  const [isSummaryOpen, setSummaryOpen] = useState(false);
 
   const addToCart = (product, quantity = 1) => {
     setCart((prevCart) => ({
@@ -20,27 +22,58 @@ export const CartProvider = ({ children }) => {
       const newCart = { ...prevCart };
       delete newCart[product.id];
       return newCart;
-    });
+    })
+  };
+
+  const updateQuantity = (product, quantity) => {
+    if (quantity <= 0) {
+      removeFromCart(product);
+    } else {
+      setCart((prevCart) => ({
+        ...prevCart,
+        [product.id]: quantity,
+      }));
+    }
   };
 
   const getQuantity = (product) => {
     return cart[product.id] || 0;
   };
 
-  const updateQuantity = (product, quantity) => {
-    setCart((prevCart) => ({
-      ...prevCart,
-      [product.id]: quantity,
-    }));
-  };
-
   const clearCart = () => {
     setCart({});
   };
 
+  const toggleCart = () => {
+    setCartOpen(!isCartOpen);
+  };
+
+  const openSummary = () => {
+    setSummaryOpen(true);
+    setCartOpen(false);
+  };
+
+  const closeSummary = () => {
+    setSummaryOpen(false);
+  };
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, removeFromCart, getQuantity, updateQuantity, clearCart, products }}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addToCart,
+        removeFromCart,
+        updateQuantity,
+        getQuantity,
+        clearCart,
+        isCartOpen,
+        toggleCart,
+        isSummaryOpen,
+        openSummary,
+        closeSummary,
+        products
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
 import CategoryList from './CategoryList';
-import Cart from './Cart'; // 
+import { useCart } from '../CartContext';
 
 const Navbar = () => {
-  const [isCartOpen, setIsCartOpen] = useState(false);
-
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen);
-  };
+  
+  const {toggleCart} = useCart();
 
   return (
     <nav className="bg-gray-900 p-4">
@@ -22,12 +19,11 @@ const Navbar = () => {
               className="p-2 w-full rounded bg-gray-700 text-white"
             />
           </div>
-          <button onClick={toggleCart} className="ml-4 text-white">
+          <button onClick={toggleCart} className="ml-4 text-pink-500">
             <FaShoppingCart size={24} />
           </button>
         </div>
       </div>
-      <Cart isOpen={isCartOpen} toggleCart={toggleCart} />
     </nav>
   );
 };
