@@ -21,7 +21,7 @@ const OrderSummary = () => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full max-w-lg relative">
         <button onClick={closeSummary} className="absolute top-4 right-4 text-black text-xl">
           &times;
         </button>

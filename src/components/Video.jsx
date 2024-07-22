@@ -8,7 +8,7 @@ const VideoSection = ({scrollToCategory}) => {
   return (
     <div className="relative">
       <video className="w-full rounded" autoPlay loop muted onError={handleVideoError}>
-        <source src="https://res.cloudinary.com/dfhj4i9hd/video/upload/v1721498067/styx/videoBg_ohz14q.mp4" type="video/mp4" />
+        <source src="https://res.cloudinary.com/dfhj4i9hd/video/upload/v1721648731/styx/1006-142621176_arrok3.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className="absolute inset-0 flex flex-col  justify-center text-center text-white p-4 lg:items-start lg:pl-44">

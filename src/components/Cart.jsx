@@ -16,7 +16,7 @@ const Cart = () => {
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative">
+      <div className="bg-gray-100 p-6 rounded-lg shadow-lg w-full max-w-lg relative">
         <button onClick={toggleCart} className="absolute top-4 right-4 text-black text-xl">
           &times;
         </button>
@@ -34,14 +34,14 @@ const Cart = () => {
                 <div className="flex items-center">
                   <button
                     onClick={() => updateQuantity(item, item.quantity - 1)}
-                    className="px-2 py-1 bg-gray-200"
+                    className="px-2 py-1 rounded-md w-8 bg-slate-200"
                   >
                     -
                   </button>
                   <span className="mx-2">{item.quantity}</span>
                   <button
                     onClick={() => updateQuantity(item, item.quantity + 1)}
-                    className="px-2 py-1 bg-gray-200"
+                    className="px-2 py-1 rounded-md w-8 bg-slate-200"
                   >
                     +
                   </button>

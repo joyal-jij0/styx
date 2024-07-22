@@ -29,7 +29,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div className="rounded-lg p-4 bg-gray-800">
-      <img src={product.image} alt={product.name} className="w-full h-32 object-cover rounded-xs mb-4" />
+      <img src={product.image} alt={product.name} className=" object-cover rounded-xs mb-4" />
       <h3 className="text-lg font-bold mb-2 text-pink-500">{product.name}</h3>
       <p className="text-slate-200 mb-4 ">₹{product.price}</p>
       {isInCart ? (
