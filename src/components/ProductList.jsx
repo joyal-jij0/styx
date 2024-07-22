@@ -2,14 +2,16 @@ import React from 'react';
 import ProductCard from './ProductCard';
 import products from '../products';
 
-const ProductList = () => {
+export default function ProductList(){
   const categorizedProducts = {
     men: products.filter((product) => product.category === 'Men'),
     women: products.filter((product) => product.category === 'Women'),
     children: products.filter((product) => product.category === 'Children'),
   };
+  // categorizing products for scroll to work
 
   return (
+    //id is for scroll to work
     <div className="p-4">
       <div id="men" className="mb-8">
         <h2 className="text-5xl flex justify-center text-pink-500 font-bold mb-8">Men</h2>
@@ -38,5 +40,3 @@ const ProductList = () => {
     </div>
   );
 };
-
-export default ProductList;

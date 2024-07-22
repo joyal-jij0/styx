@@ -3,9 +3,10 @@ import { FaShoppingCart } from 'react-icons/fa';
 
 import { useCart } from '../CartContext';
 
-const Navbar = ({scrollToCategory}) => {
+export default function Navbar({scrollToCategory}) {
   
   const {toggleCart} = useCart();
+  // uses state in the context to toggle
 
   return (
     <nav className="bg-gray-900 p-4">
@@ -20,8 +21,8 @@ const Navbar = ({scrollToCategory}) => {
             <input
               type="text"
               placeholder="Search..."
-              className="p-2 w-full rounded bg-gray-700 text-white"
-            />
+              className="p-2 w-full rounded bg-gray-700 text-white" 
+            /> 
           </div>
           <button onClick={toggleCart} className="ml-4 text-pink-500">
             <FaShoppingCart size={24} />
@@ -31,5 +32,3 @@ const Navbar = ({scrollToCategory}) => {
     </nav>
   );
 };
-
-export default Navbar;

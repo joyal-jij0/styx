@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from './components/navbar.jsx';
 import ProductList from './components/ProductList.jsx';
-import VideoSection from './components/Video.jsx';
+import VideoSection from './components/VideoSection.jsx';
 import { CartProvider } from './CartContext.js';
 import products from './products.js';
 import Cart from './components/Cart.jsx';

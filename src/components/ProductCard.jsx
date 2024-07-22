@@ -1,8 +1,8 @@
 import React from 'react';
 import { useCart } from '../CartContext';
 
-const ProductCard = ({ product }) => {
-  const { cart, addToCart, removeFromCart, getQuantity } = useCart();
+export default function ProductCard({ product }){
+  const { addToCart, removeFromCart, getQuantity } = useCart();
 
   const handleAddToCart = () => {
     addToCart(product);
@@ -68,5 +68,3 @@ const ProductCard = ({ product }) => {
     </div>
   );
 };
-
-export default ProductCard;

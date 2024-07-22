@@ -1,17 +1,22 @@
 import React from 'react';
 import { useCart } from '../CartContext';
 
-const Cart = () => {
+export default function Cart(){
   const { cart, removeFromCart, updateQuantity, isCartOpen, toggleCart, openSummary, products } = useCart();
 
-  if (!isCartOpen) return null;
+  if (!isCartOpen){
+    return null
+  } 
 
+  //Map over the cart object
   const cartItems = Object.keys(cart).map((productId) => {
     const quantity = cart[productId];
+    //product details from the products array
     const product = products.find((product) => product.id === parseInt(productId));
     return { ...product, quantity };
   });
 
+  // Calculate the total amount
   const totalAmount = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
@@ -70,5 +75,3 @@ const Cart = () => {
     </div>
   );
 };
-
-export default Cart;
