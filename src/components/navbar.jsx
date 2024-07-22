@@ -1,16 +1,20 @@
 import React from 'react';
 import { FaShoppingCart } from 'react-icons/fa';
-import CategoryList from './CategoryList';
+
 import { useCart } from '../CartContext';
 
-const Navbar = () => {
+const Navbar = ({scrollToCategory}) => {
   
   const {toggleCart} = useCart();
 
   return (
     <nav className="bg-gray-900 p-4">
       <div className="container mx-auto flex items-center">
-        <CategoryList />
+      <ul className="flex space-x-4 text-white">
+          <li onClick={() => scrollToCategory('men')} className="p-2 cursor-pointer text-xl text-pink-500">Men</li>
+          <li onClick={() => scrollToCategory('women')} className="p-2 cursor-pointer text-xl text-pink-500">Women</li>
+          <li onClick={() => scrollToCategory('children')} className="p-2 cursor-pointer text-xl text-pink-500">Children</li>
+        </ul>
         <div className="ml-auto flex items-center">
           <div className="w-full max-w-sm">
             <input

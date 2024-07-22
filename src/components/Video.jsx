@@ -1,6 +1,6 @@
 import React from 'react';
 
-const VideoSection = () => {
+const VideoSection = ({scrollToCategory}) => {
   const handleVideoError = (event) => {
     console.error('Error loading video:', event);
   };
@@ -19,10 +19,10 @@ const VideoSection = () => {
           <h3 className="text-xl lg:text-2xl">Shop Trending Styles</h3>
         </div>
         <div className="flex justify-center space-x-4">
-          <div className="border rounded-xl border-white p-4">
+          <div onClick={() => scrollToCategory('women')} className="border rounded-xl border-white p-4 cursor-pointer">
             <h4 className="text-lg lg:text-xl">Shop Women</h4>
           </div>
-          <div className="border rounded-xl border-white p-4">
+          <div onClick={() => scrollToCategory('men')} className="border rounded-xl border-white p-4 cursor-pointer">
             <h4 className="text-lg lg:text-xl">Shop Men</h4>
           </div>
         </div>

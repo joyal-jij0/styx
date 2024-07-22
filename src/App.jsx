@@ -8,11 +8,17 @@ import Cart from './components/Cart.jsx';
 import OrderSummary from './components/OrderSummary.jsx';
 
 function App() {
+  const scrollToCategory = (category) => {
+    const element = document.getElementById(category);
+    if (element) {
+      window.scrollTo({ top: element.offsetTop, behavior: 'smooth' });
+    }
+  };
   return (
       <div className='bg-gray-900'>
         <CartProvider>
-        <Navbar/>
-        <VideoSection/>
+        <Navbar scrollToCategory={scrollToCategory} />
+        <VideoSection scrollToCategory={scrollToCategory}/>
         
         <div className="container mx-auto p-4">
           <ProductList products={products} />

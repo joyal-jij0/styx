@@ -1,26 +1,40 @@
 import React from 'react';
 import ProductCard from './ProductCard';
+import products from '../products';
 
-const ProductList = ({ products }) => {
-  const categories = ['Men', 'Women', 'Children'];
-
-  const categorizedProducts = categories.reduce((acc, category) => {
-    acc[category] = products.filter(product => product.category === category);
-    return acc;
-  }, {});
+const ProductList = () => {
+  const categorizedProducts = {
+    men: products.filter((product) => product.category === 'Men'),
+    women: products.filter((product) => product.category === 'Women'),
+    children: products.filter((product) => product.category === 'Children'),
+  };
 
   return (
-    <div className="container mx-auto p-4">
-      {categories.map(category => (
-        <div key={category}>
-          <h2 className="text-5xl flex justify-center text-pink-500 font-bold mb-4">{category}</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4">
-            {categorizedProducts[category].map(product => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-          </div>
+    <div className="p-4">
+      <div id="men" className="mb-8">
+        <h2 className="text-5xl flex justify-center text-pink-500 font-bold mb-4">Men</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {categorizedProducts.men.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
         </div>
-      ))}
+      </div>
+      <div id="women" className="mb-8">
+        <h2 className="text-5xl flex justify-center text-pink-500 font-bold mb-4">Women</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {categorizedProducts.women.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </div>
+      <div id="children" className="mb-8">
+        <h2 className="text-5xl flex justify-center text-pink-500 font-bold mb-4">Children</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          {categorizedProducts.children.map((product) => (
+            <ProductCard key={product.id} product={product} />
+          ))}
+        </div>
+      </div>
     </div>
   );
 };
